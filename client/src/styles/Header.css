@@ -14,6 +14,7 @@
   .user-info {
     font-size: 18px;
     color: black;
+    text-transform: capitalize;
   }
   .logo img {
     width: 35px; /* Logo width */

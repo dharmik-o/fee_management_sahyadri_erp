@@ -1,0 +1,52 @@
+body{
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+}
+nav{
+
+    width : 100%;
+    padding : 10px;
+    background-color: red;
+    box-sizing: border-box;
+}
+nav h1{
+    margin-left : 20px;
+    font-size: 2rem;
+}
+nav p{
+    float: right;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+nav p,h1{
+    display: inline;
+}
+
+.container{
+    min-width: auto;
+    /* border: 20px solid rgb(187, 25, 25); */
+    position: relative;
+}
+
+.container button{
+    width : 200px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding : 20px 20px;
+    border-radius: 5px;
+}
+
+.payment-popup{
+    width : 700px;
+    height : 300px;
+    background-color: #fff;
+    border : 2px solid black;
+    position : absolute;
+    /* top : 50%;
+    left : 50%;
+    transform : translate(-50%); */
+}

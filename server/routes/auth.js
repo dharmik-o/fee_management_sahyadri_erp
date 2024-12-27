@@ -26,21 +26,33 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/admin-login",(req,res) => {
-  const {name ,usn} = req.body;
-  if(!name || !usn){
-    return res.status(400).json({message: "name and id are required"});
+router.post("/admin-login", (req, res) => {
+  const { name, usn } = req.body;
+
+  // Validate request body
+  if (!name || !usn) {
+    return res.status(400).json({ message: "Name and ID are required." });
   }
 
-  const query = "select * from admin_users where admin_name = ? AND admin_id = ?";
-  db.query(query,[name,usn],(err,results) => {
-    if(err){
-      console.error("error querying database : ",err);
-      return res.status(500).json({message : "internal server error"});
+  // Corrected SQL query
+  const query = `
+    SELECT a.* 
+    FROM admin_users a
+    WHERE admin_name = ? AND admin_id = ?
+  `;
+
+  db.query(query, [name, usn], (err, results) => {
+    if (err) {
+      console.error("Error querying database: ", err);
+      return res.status(500).json({ message: "Internal server error." });
     }
-    if(results.length > 0)  return res.status(200).json({message : "login successful"})
-    else return res.status(401).json({message : "invalid credentials"});
-  })
+
+    if (results.length > 0) {
+      return res.status(200).json({ message: "Login successful" });
+    } else {
+      return res.status(401).json({ message: "Invalid credentials." });
+    }
+  });
 });
 
 // Add Student Details Route
@@ -81,6 +93,42 @@ router.post("/addDetails", async (req, res) => {
     await db.rollback();
     res.status(500).json({ message: "Internal server error" });
   }
+});
+
+router.post("/getFeeDetails", (req, res) => {
+  const { usn } = req.body;
+
+  const query = `
+   SELECT 
+    s.name AS student_name,
+    t.amount AS tuition_fee_total,
+    t.fee_paid AS tuition_fee_paid,
+    ps.placement_fee_status AS pfs,
+    ps.skilllab_fee_status AS slfs
+FROM 
+    student s
+JOIN 
+    tution t ON s.usn = t.usn
+JOIN 
+    placement_skill ps ON ps.usn = s.usn 
+WHERE 
+    s.usn = ?;
+
+  `;
+
+  db.query(query, [usn], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error fetching fee details.");
+      return;
+    }
+
+    if (results.length === 0) {
+      res.status(404).send("No fee details found for the given USN.");
+    } else {
+      res.json(results[0]);']'
+    }
+  });
 });
 
 module.exports = router;

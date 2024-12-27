@@ -1,5 +1,5 @@
 import React from 'react';
-import './FeeCard.css';
+import '../styles/FeeCard.css';
 
 function FeeCard({ title, amount, paid, balance, isPaid }) {
   return (
