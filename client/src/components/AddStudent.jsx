@@ -48,35 +48,62 @@ export default function AddStudent() {
   return (
     <>
     <div className="add-student-container">
-      <form onSubmit={handleSubmit} method="post">
-        <label htmlFor="Name">Student Name</label>
-        <input type="text" id="Name" required
-        onChange={(e)=>{setName(e.target.value)}}/>
-        <br />
-        <label htmlFor="Usn">Student Usn</label>
-        <input type="text" id="Usn" required
-        onChange={(e)=>{setUsn(e.target.value)}} />
-        <br />
-        <label htmlFor="mode">Admission mode</label>
-        <select name="" id="mode" required onChange={(e)=>{setMode(e.target.value)}}>
-          <option value="Merit">Merit</option>
-          <option value="Management">Management</option>
-          <option value="ComedK">ComedK</option>
-        </select>
-        <br/>
-        <label htmlFor="Fee">Fee to be paid</label>
-        <input type="number" id="Fee" required
-        onChange={(e)=>{setFee(e.target.value)}}/>
-        <br/>
-        <label htmlFor="paid">Fee paid</label>
-        <input type="number" id="paid" required
-        onChange={(e)=>{setPaid(e.target.value)}}/>
-        <br/>
-        <input type="submit" />
-      </form>
+    <form onSubmit={handleSubmit} method="post" className="form-container">
+  <div className="form-group">
+    <label htmlFor="Name">Student Name</label>
+    <input
+      type="text"
+      id="Name"
+      required
+      onChange={(e) => setName(e.target.value)}
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="Usn">Student Usn</label>
+    <input
+      type="text"
+      id="Usn"
+      required
+      onChange={(e) => setUsn(e.target.value)}
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="mode">Admission Mode</label>
+    <select
+      name=""
+      id="mode"
+      required
+      onChange={(e) => setMode(e.target.value)}
+    >
+      <option value="Merit">Merit</option>
+      <option value="Management">Management</option>
+      <option value="ComedK">ComedK</option>
+    </select>
+  </div>
+  <div className="form-group">
+    <label htmlFor="Fee">Fee to be Paid</label>
+    <input
+      type="number"
+      id="Fee"
+      required
+      onChange={(e) => setFee(e.target.value)}
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="paid">Fee Paid</label>
+    <input
+      type="number"
+      id="paid"
+      required
+      onChange={(e) => setPaid(e.target.value)}
+    />
+  </div>
+  <div className="form-group">
+    <input type="submit" value="Submit" />
+  </div>
+</form>
+
     </div>
-    <br/>
-    <div>AddStudent</div>
     </>
     
   )
