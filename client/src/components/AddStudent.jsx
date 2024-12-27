@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import "./AddStudent.css"
+import "../styles/AddStudent.css"
 export default function AddStudent() {
   const [name,setName] = useState(null);
   const [usn,setUsn] = useState(null);
