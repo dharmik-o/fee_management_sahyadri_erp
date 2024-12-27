@@ -1,0 +1,17 @@
+.dashboard {
+    padding: 20px;
+  }
+  .section {
+    margin-bottom: 20px;
+  }
+  .unpaid-section h2 {
+    background-color: #d80073;
+    color: #fff;
+    padding: 10px;
+  }
+  .paid-section h2 {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 10px;
+  }
+  
