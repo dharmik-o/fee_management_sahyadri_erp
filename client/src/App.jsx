@@ -3,7 +3,7 @@ import { useRoutes } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import AdminDashboard from "./components/AdminDashboard"
-import "./components/AdminDashboard.css"
+import "./styles/AdminDashboard.css"
 function App() {
   const routes = useRoutes([
     { path: "/", element: <Login /> },
